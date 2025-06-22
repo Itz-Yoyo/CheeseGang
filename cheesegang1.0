@@ -1,0 +1,316 @@
+
+#definition
+define a = Character('我', color="#c8c8ff")
+define m = Character('莫札瑞拉', color="#c8ffc8")
+define b = Character("藍紋起司", color="#0044ff")
+define p = Character("帕瑪森", color="#c7ffs7")
+define i = Character("羊奶", color="#c9ffa5")
+
+
+#Position
+
+transform p1:  
+    xpos 0.35
+    ypos 0.15
+#mozz=mozzarela pamasian=pam bluecheese=blue
+
+#Background
+
+image bg store:
+    "bg store.png"
+    zoom 2.25
+image bg library:
+    "bg library.png"
+    zoom 2.25
+image bg classroom:
+    "bg classroom.png"
+    zoom 2.25
+image bg aisle:
+    "bg aisle.png"
+    zoom 2.25
+image bg aislenoon:
+    "bg aislenoon.png"
+    zoom 2.25
+
+
+#Character Sprite
+
+image blue angry:
+    "blue angry.png"
+    zoom 1.5
+image blue blush:
+    "blue blush.png"
+    zoom 1.5
+image blue confident:
+    "blue confident.png"
+    zoom 1.5
+image blue crying:
+    "blue crying.png"
+    zoom 2.0
+image blue normal:
+    "blue normal.png"
+    zoom 1.5
+image blue shocked:
+    "blue shocked.png"
+    zoom 1.5    
+image blue smirking:
+    "blue smirking.png"
+    zoom 1.5
+image blue thinking:
+    "blue thinking.png"
+    zoom 1.5
+
+default a = ""
+
+label start:
+    $ a = renpy.input("你叫什麼名字?", default="伊達姆")
+    $ a = a.strip()
+    
+    # If player enters nothing, use default name
+    if a == "":
+        $ a = "伊達姆"
+        
+    "嗨, [a]!"
+    "那我們開始遊戲吧"
+
+
+    #序章
+    #事件一:藍紋&抽屜起司
+
+    #學校走廊
+    scene bg aisle with dissolve
+    a "沒想到暑假轉眼間就過了"
+    a "新事物,新環境..."
+    a "希望也能交到新朋友"
+    a "!"
+
+    #藍紋衝上前來撞到mc
+
+    b "你不要緊吧?"
+    a "我沒事,小跌倒而已"
+    a "那你呢?"
+    show blue blush at p1
+    b "我?"
+    b "..."
+    b "... ..."
+    b "... ... ..."
+    b "... ... ... ..."
+    b "... ... ... ... ..啊!!!!!!!"
+    b "不得了了! 會來不及的!"
+    hide blue blush
+    #藍紋跑了
+
+    a "這個人還真是特別=_=..."
+    a "不管了,接下來我得加把勁撐過這個學期"
+    scene black with fade
+    #至於藍紋這一邊
+    #邪惡的笑容
+
+    show blue smirking at p1
+    b "嘿嘿"
+    b "當嘿嘿嘿完我就會知道花為什麼這麼嘿嘿嘿"
+    hide blue smirking
+    #事件一結束
+
+
+
+    #事件二:抽屜起司
+    #兩周後
+
+    #放學鐘聲響起
+    "放學鐘聲響起"
+    scene bg aislenoon with fade
+    "同學A" "欸欸,今天要不要一起去吃飯?"
+    "同學A" "我家附近開了一間壽司吃到飽"
+    "同學B" "喔喔喔! 對麻,壽司就應該要是吃到飽,不然每次算錢都會心痛"
+    a "我今天有點不方便欸,老師說放學後有事要找我,可能明天吧"
+    "同學A" "[a]今天又被留校察看,要不要太可憐"
+    a "就說了不是留校察看,而且我之前又沒有留過"
+    "同學B" "那就明天見喽!"
+    a "有點不捨"
+    a "最好是有甚麼重要的事,拖累我的壽司吃到飽"
+    a "?"
+    a "這是什麼死魚味阿?"
+    a "?????"
+    a "為什麼這個人座位裡會有發霉的起司"
+    "老師" "[a]等下記得來辦公室找我喔"
+    a "好! 老師,"
+    a "不管了,先處理掉再說"
+
+    #隔天上課
+
+    #MC找到藍紋
+    scene bg classroom with fade
+    show blue blush at p1
+    b "(趴在桌上)"
+    a "欸欸"
+    b "起司......"
+    a "蛤?"
+    b "起司...我心愛的寶貝不見了"
+    a "(冒冷汗)"
+    a "其實我..."
+    b "連一個起司都照顧不好,我看我是白活了"
+  
+    show blue angry at p1
+    #抬起頭
+
+    b "還是我自我了斷好了"
+    a "*這個人是怎樣"
+    a "你說起司,藍紋起司嗎"
+   
+    show blue shocked at p1
+    b "沒錯,我的藍紋起司"
+   
+    show blue thinking at p1
+    b "難不成,你對我的起司下了手"
+    
+    show blue crying at p1
+    b "你怎麼忍心,他才六個月大"
+    a "冷靜點聽我說,你的起司壞了,而且塞在抽屜裡這種很不負責任的方法你到底是怎麼想出來的"
+    b "不,怎麼可能"
+    
+    show blue angry at p1
+    b "你憑甚麼認為起司壞了"
+    a "藍紋起司壞的時候會有種特殊的尿味,我很是這股味道肯定不會錯"
+    
+    show blue crying at p1
+    b "嗚嗚嗚~ 我辛苦種的起司"
+    b "六個月的時光就這麼沒了"
+    b "謝謝你好心告訴我"
+
+    menu:
+        b "我該走了..."
+
+        "等一下,我可以補償":
+            show blue normal at p1
+            jump chapter_cheesepicking
+
+        "希望妳可以找到更好的人":
+            
+            show blue blush at p1
+            b "希望如此"
+            jump chapter_library
+label chapter_cheesepicking:
+
+    a "等一下,我可以補償"
+    show blue normal at p1
+    
+    b "?"
+    b "你打算怎麼辦?"
+    a "跟我走,我可以給你一樣東西"
+    b "?"
+    
+    show blue angry at p1
+    b "這個瘋子再說甚麼傻話"
+    b "算了,反正我也沒有什麼損失"
+    #走道MC家附近
+    "兩人走到商店街附近"
+    scene bg store with fade
+    menu:
+        a "你要的是不是這個..."
+
+        "藍紋起司100$":
+            show blue shocked at p1
+            b ":O"
+            b "你怎麼弄到這麼大片起司的?"
+            show blue smirking at p1
+            b "作為學生,作為愛好者,這種材質,這種品質...我想好好照顧她..."
+            a "沒有啦~ 因為我從小就常常在我家附近的起司專賣店打工..."
+            b ":DDD"
+            a "你有在聽嗎?"
+            show blue thinking at p1
+            b "咳"
+            show blue normal at p1
+            b "當然有,感謝[a]同學的幫忙,今日的恩賜我將會永久銘記在心"
+            show blue smirking at p1
+            b "那麼,我先走了喔!再見"
+            a "再見"
+            hide blue smirking
+            a "這人到底是怎樣"
+            a "算了,她高興就好"
+            a "希望這個月還能撐過月底"
+
+            jump chapter_library 
+
+        "脂溼熱起司薄片10$":
+            show blue angry at p1
+            b "你想用這個打發我嗎?"
+            b "那種噁心的薄脂肪怎麼能跟優雅的藍紋相比"
+            "你被賞了一巴掌"
+            hide blue angry
+            a "至少我明天早餐有配菜了"
+            menu:
+                "你死了"
+
+                "從上個存檔點開始":
+                    jump chapter_cheesepicking
+
+                "離開":
+                    return
+
+
+#事件二結束
+
+#事件三:圖書館與神祕俱樂部
+
+label chapter_library:
+    scene bg library with fade
+    a "我是一年B般的[a]"
+    a "身為一名成績中上偏上普通學生"
+    a "所以說,課後當然可想而知的到圖書館,享受知識的洗禮"
+    a "所以我說..."
+    "shhh"
+    a "(講太大聲了嗎:/)"
+    a "等等...那個人是?"
+    b "????"
+    show blue shocked at p1
+    b "!"
+    show blue normal at p1
+    b "嗨[a]"
+    b "沒想到你會出現在這裡"
+    a "這是我要說的話"
+    show blue shocked at p1
+    b "!?"
+    b "你手上拿著的是"
+    b "起司與他們的農地2 芝心好友 !!!"
+    show blue normal at p1
+    b "原來是被你借走了"
+    b "我找了好幾天都沒找到"
+    a "噓噓噓"
+    a "幾乎整間圖書館都快要知道我是來這邊讀小說而不是讀書的"
+    a "你想害我身敗名裂嗎"
+    b "那書可以先借我看嗎?"
+    a "我看到一半"
+    show blue angry at p1
+    b "(深吸一口氣)"
+    a "好好好先借你"
+    show blue smirking at p1
+    b "謝謝[a]你人最好了"
+    show blue thinking at p1
+    b "咳"
+    show blue normal at p1
+    b "這樣好像有點霸道"
+    show blue thinking at p1
+    b "不如"
+    show blue normal at p1
+    b "作為交易,我帶你去一個地方"
+    b "你值得跟我,不,我們一起想有這片烏托邦"
+    a "這傢伙又開始了"
+    b "下星期三中午"
+    show blue smirking at p1
+    b "到選修教室1"
+    b "我會帶者你的書在那裡等你,我保證不會讓你失望"
+    a "欸"
+    b "就這樣 掰!"
+    hide blue smirking
+    a "欸 不是 那本書明天就到期了欸 你給我回來!!!"
+    "藍紋跑走了,       你的借書證被扣押押並繳了50$延期費"
+    scene black with fade
+    menu:
+        "遊戲已結束"
+
+        "重新開始":
+            jump start
+
+        "回到選單":
+            return
